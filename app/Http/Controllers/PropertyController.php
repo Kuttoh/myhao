@@ -35,7 +35,7 @@ class PropertyController extends Controller
 
     public function index()
     {
-        $properties  = DeveloperProperty::paginate(2);
+        $properties  = DeveloperProperty::paginate(5);
 
         return view('properties.show', ['properties' => $properties]);
     }
