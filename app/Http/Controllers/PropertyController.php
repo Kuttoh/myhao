@@ -7,6 +7,7 @@ use App\County;
 use App\DeveloperProperty;
 use App\FinancialInstitution;
 use App\PropertyApplication;
+use App\PropertyDeveloper;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -65,11 +66,13 @@ class PropertyController extends Controller
 
         $input = Arr::except($request, ['_token', 'image']);
 
+        $developer = PropertyDeveloper::where('user_id', Auth::id())->first();
+
         $property = new DeveloperProperty();
         $property->fill($input);
         $property->save();
         $property->image = $path;
-        $property->developer_id = Auth::id();
+        $property->developer_id = $developer->id;
         $property->update();
 
         Flash::success('Property Created Successfully');
