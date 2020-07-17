@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FinancialInstitution extends Model
+class DeveloperProperty extends Model
 {
     use SoftDeletes;
     /**
@@ -13,7 +13,7 @@ class FinancialInstitution extends Model
      *
      * @var string
      */
-    protected $table = 'financial_institutions';
+    protected $table = 'developer_properties';
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +22,13 @@ class FinancialInstitution extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function user()
+    public function county()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(County::class, 'county_id');
+    }
+
+    public function developer()
+    {
+        return $this->belongsTo(PropertyDeveloper::class, 'developer_id');
     }
 }
