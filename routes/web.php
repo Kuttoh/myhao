@@ -45,6 +45,9 @@ Route::get('/properties', 'PropertyController@index')->name('show_properties');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/properties/create', 'PropertyController@create')->name('create_property');
     Route::post('/properties/save', 'PropertyController@save')->name('save_property');
-    Route::post('/properties/apply/{id}', 'PropertyController@apply')->name('apply');
+
+    Route::get('/properties/apply/{id}', 'ApplicationController@index')->name('apply');
+    Route::post('/properties/apply/save', 'ApplicationController@save')->name('post_apply');
+    Route::get('/applications', 'ApplicationController@show')->name('show_applications');
 });
 

@@ -26,4 +26,9 @@ class DeveloperProperty extends Model
     {
         return $this->belongsTo(County::class, 'county_id');
     }
+
+    public function developer()
+    {
+        return $this->belongsTo(PropertyDeveloper::class, 'developer_id');
+    }
 }

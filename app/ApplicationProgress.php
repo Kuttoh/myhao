@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FinancialInstitution extends Model
+class ApplicationProgress extends Model
 {
     use SoftDeletes;
     /**
@@ -13,7 +13,7 @@ class FinancialInstitution extends Model
      *
      * @var string
      */
-    protected $table = 'financial_institutions';
+    protected $table = 'application_progress';
 
     /**
      * The attributes that are mass assignable.
@@ -21,9 +21,4 @@ class FinancialInstitution extends Model
      * @var array
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

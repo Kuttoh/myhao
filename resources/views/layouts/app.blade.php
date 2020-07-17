@@ -39,8 +39,11 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('show_properties') }}">Properties</a></li>
-                        <li><a href="{{ route('home') }}">Applications</a></li>
-                        &nbsp;
+                        @if(!Auth::guest())
+                            @if(Auth::user()->isFinancialInstitution())
+                                <li><a href="{{ route('show_applications') }}">Applications</a></li>
+                            @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

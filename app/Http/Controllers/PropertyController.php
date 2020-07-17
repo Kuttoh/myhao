@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\County;
 use App\DeveloperProperty;
+use App\FinancialInstitution;
+use App\PropertyApplication;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 
@@ -69,10 +74,5 @@ class PropertyController extends Controller
         Flash::success('Property Created Successfully');
 
         return redirect('/properties');
-    }
-
-    public function apply($id)
-    {
-        dd($id);
     }
 }

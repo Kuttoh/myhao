@@ -50,6 +50,12 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="form-group form-horizontal">
+                                    {!! Form::label( 'price','Price') !!}
+                                    {!! Form::number('price', null, ['class'=>'form-control', 'required', 'placeholder' => 'in Kenya Shillings']) !!}
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group form-horizontal">
                                     {!! Form::label( 'image','Upload Image') !!}
                                     {!! Form::file('image', ['class'=>'form-control'])!!}
                                 </div>
