@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use Laracasts\Flash\Flash;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function isClient()
+    {
+        return hasRole('client');
+    }
+
+    public function isPropertyDeveloper()
+    {
+        return hasRole('property_developer');
+    }
+
+    public function isFinancialInstitution()
+    {
+        return hasRole('financial_institution');
+    }
 }

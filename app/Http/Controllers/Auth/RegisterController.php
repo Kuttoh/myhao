@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
     public function preRegister()
     {
-        $categories = Role::all();
+        $categories = Role::where('slug', '!=', 'platform_admin')->get();
 
         return view('auth.pre_register', ['categories' => $categories]);
     }
