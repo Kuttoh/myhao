@@ -69,6 +69,7 @@ class PropertyController extends Controller
         $property->fill($input);
         $property->save();
         $property->image = $path;
+        $property->developer_id = Auth::id();
         $property->update();
 
         Flash::success('Property Created Successfully');
