@@ -6,5 +6,3 @@ This is a real estate mock site.
   - Allows client to apply for the housing
   - Financial institution can finance the housing
   - Property developers can post houses available for sale
-
-Visit https://myhao.epicresearcher.com
